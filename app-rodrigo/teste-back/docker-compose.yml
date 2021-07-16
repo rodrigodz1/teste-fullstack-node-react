@@ -1,0 +1,39 @@
+version: "3.2"
+services:
+  app:
+    build: .
+    image: trab-seg/node
+    container_name: nodetrab
+    command: bash -c "chmod +x /init.sh & ./init.sh"
+    depends_on:
+      - db
+    links:
+      - db
+    ports:
+      - "3333:3333"
+    volumes:
+      - .:/app/
+      - /app/node_modules
+    networks:
+      - backend-seg
+
+  db:
+    image: mysql
+    container_name: mysql-fullstack
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    networks:
+      - backend-seg
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+    expose:
+      - 3306
+
+networks:
+  backend-seg:
+    driver: bridge
