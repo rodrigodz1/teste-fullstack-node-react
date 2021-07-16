@@ -13,6 +13,7 @@ Em ./teste-back, execute: <br />
 Pronto. Servidor rodando em http://localhost:3333
 
 ## Cliente
+Em ./teste-front: <br />
 Instale as dependências: <br />
 `npm install` <br />
 
