@@ -1,4 +1,4 @@
-Servidor do desafio seletivo 4events.
+Aplicação do desafio seletivo 4events.
 
 Tecnologias utilizadas no backend: Node.js, MySQL, Sequelize, Docker e docker-compose. <br />
 Para o frontend: Next.js, styled-components e axios.
